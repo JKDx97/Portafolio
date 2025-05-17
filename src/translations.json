@@ -1,0 +1,130 @@
+{
+  "es": {
+    "brand": "MiPortafolio",
+    "nav": {
+      "about": "Sobre mí",
+      "skills": "Skills",
+      "projects": "Proyectos",
+      "study": "Estudios",
+      "contact": "Contacto"
+    },
+    "hero": {
+      "title": "Desarrollador Full Stack",
+      "subtitle": "Diseño, desarrollo y despliego soluciones web modernas.",
+      "aboutTitle": "Sobre mí",
+      "aboutText": "Soy un apasionado del desarrollo web con experiencia en frontend y backend. Me encanta construir aplicaciones modernas que resuelvan problemas reales. Siempre busco mejorar mis habilidades, trabajar en equipo y mantenerme actualizado con las últimas tecnologías.",
+      "cvButton": "Mira mi CV :)",
+      "cvTooltip": "Descarga disponible",
+      "tourButton": "Hacer un tour",
+      "tourTooltip": "Tour del portafolio :3"
+    },
+    "skills": {
+      "title": "Habilidades",
+      "technologies": "Tecnologías",
+      "software": "Software"
+    },
+    "projects": {
+      "title": "Proyectos Destacados",
+      "admin": {
+        "name": "Admin Store",
+        "desc": "Panel administrativo para gestionar productos, usuarios y órdenes. CRUD completo y UI intuitiva."
+      },
+      "gamer": {
+        "name": "Store Gamer Vault",
+        "desc": "Tienda online de videojuegos con carrito de compras y navegación amigable."
+      },
+      "backend": {
+        "name": "API Ecommerce",
+        "desc": "Backend en Node.js con Express, autenticación por sockets, base de datos MySQL y almacenamiento de imágenes en AWS S3.",
+        "placeholder": "API REST Backend (sin frontend)"
+      },
+      "coming": {
+        "title": "✨ Próximamente",
+        "desc": "Nuevos proyectos en desarrollo. ¡Muy pronto disponibles!"
+      },
+      "viewProject": "Ver Proyecto",
+      "viewCode": "Ver Código"
+    },
+    "study": {
+      "title": "Estudios",
+      "idat": {
+        "name": "Instituto IDAT",
+        "desc": "Carrera Técnica: Desarrollo de Sistemas e Información",
+        "status": "Finalizado"
+      },
+      "utp": {
+        "name": "UTP - Universidad Tecnológica del Perú",
+        "desc": "Carrera Profesional: Ingeniería de Sistemas e Información",
+        "status": "En curso (Pregrado)"
+      }
+    },
+    "contact": {
+      "title": "Contáctame",
+      "subtitle": "Estoy disponible para colaboraciones, proyectos o simplemente conversar."
+    }
+  },
+  "en": {
+    "brand": "MyPortfolio",
+    "nav": {
+      "about": "About me",
+      "skills": "Skills",
+      "projects": "Projects",
+      "study": "Education",
+      "contact": "Contact"
+    },
+    "hero": {
+      "title": "Full Stack Developer",
+      "subtitle": "I design, develop, and deploy modern web solutions.",
+      "aboutTitle": "About me",
+      "aboutText": "I'm passionate about web development with experience in frontend and backend. I love building modern apps that solve real-world problems. I'm always looking to improve my skills, collaborate, and stay up-to-date with the latest technologies.",
+      "cvButton": "View my CV :)",
+      "cvTooltip": "Download available",
+      "tourButton": "Take a tour",
+      "tourTooltip": "Portfolio tour :3"
+    },
+    "skills": {
+      "title": "Skills",
+      "technologies": "Technologies",
+      "software": "Software"
+    },
+    "projects": {
+      "title": "Featured Projects",
+      "admin": {
+        "name": "Admin Store",
+        "desc": "Admin panel to manage products, users, and orders. Full CRUD and intuitive UI."
+      },
+      "gamer": {
+        "name": "Gamer Vault Store",
+        "desc": "Online video game store with cart and user-friendly navigation."
+      },
+      "backend": {
+        "name": "Ecommerce API",
+        "desc": "Backend in Node.js with Express, socket authentication, MySQL database, and AWS S3 image storage.",
+        "placeholder": "REST API Backend (no frontend)"
+      },
+      "coming": {
+        "title": "✨ Coming Soon",
+        "desc": "New projects in development. Coming soon!"
+      },
+      "viewProject": "View Project",
+      "viewCode": "View Code"
+    },
+    "study": {
+      "title": "Education",
+      "idat": {
+        "name": "IDAT Institute",
+        "desc": "Technical Degree: Systems and Information Development",
+        "status": "Completed"
+      },
+      "utp": {
+        "name": "UTP - Technological University of Peru",
+        "desc": "Bachelor’s Degree: Systems and Information Engineering",
+        "status": "Ongoing (Undergraduate)"
+      }
+    },
+    "contact": {
+      "title": "Contact Me",
+      "subtitle": "I'm available for collaborations, projects or just a chat."
+    }
+  }
+}
