@@ -36,7 +36,7 @@ export const translations = {
     utpDesc: 'Carrera Profesional: Ingeniería de Sistemas e Información',
     contactTitle: 'Contáctame',
     contactDesc:
-      'Estoy disponible para colaboraciones, proyectos o simplemente conversar.',
+      'Estoy disponible para colaboracione o proyectos .',
     availableNow: 'Disponible para trabajar',
     location: 'Ubicación',
     timezone: 'Zona horaria',
@@ -76,7 +76,7 @@ export const translations = {
     utpTitle: 'UTP - Technological University of Peru',
     utpDesc: 'Professional Degree: Information Systems Engineering',
     contactTitle: 'Contact Me',
-    contactDesc: 'I’m available for collaborations, projects or just to chat.',
+    contactDesc: 'I’m available for collaborations or projects.',
     availableNow: 'Available to work',
     location: 'Location',
     timezone: 'Timezone',
