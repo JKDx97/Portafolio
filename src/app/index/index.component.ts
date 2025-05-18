@@ -15,6 +15,7 @@ import { driver } from 'driver.js';
 import 'driver.js/dist/driver.css';
 import { translations } from '../translations';
 import lottie from 'lottie-web';
+declare var bootstrap: any; // Necesario para controlar el modal de Bootstrap
 
 @Component({
   selector: 'app-index',
@@ -87,6 +88,7 @@ export class IndexComponent {
 
   @ViewChildren('circleRef') circles!: QueryList<ElementRef>;
   @ViewChild('lottieContainer', { static: false }) lottieContainer!: ElementRef;
+  @ViewChild('navbarCollapse', { static: false }) navbarCollapse!: ElementRef;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -244,5 +246,13 @@ export class IndexComponent {
       link.download = 'Mi_CV.pdf';
       link.click();
     }, 2000);
+  }
+  closeNavbar() {
+    const el = this.navbarCollapse?.nativeElement;
+    if (el) {
+      const collapse =
+        bootstrap.Collapse.getInstance(el) || new bootstrap.Collapse(el);
+      collapse.hide();
+    }
   }
 }
