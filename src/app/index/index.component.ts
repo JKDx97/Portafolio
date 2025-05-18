@@ -103,6 +103,7 @@ export class IndexComponent {
 
   ngOnDestroy(): void {
     if (this.timer) clearInterval(this.timer);
+    document.removeEventListener('click', this.handleOutsideClick.bind(this));
   }
   updateTime(): void {
     const now = new Date();
@@ -116,17 +117,17 @@ export class IndexComponent {
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       AOS.init({
-        once: false, // <- CAMBIO AQUÍ
+        once: false, 
       });
       setTimeout(() => {
-        AOS.refreshHard(); // fuerza el reescaneo del DOM
+        AOS.refreshHard(); 
       }, 500);
       lottie.loadAnimation({
         container: this.lottieContainer.nativeElement,
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        path: '/images/animation.json', // puedes cambiar esta URL
+        path: '/images/animation.json', 
       });
       const observer = new IntersectionObserver(
         (entries) => {
@@ -147,6 +148,7 @@ export class IndexComponent {
       );
 
       this.circles.forEach((circle) => observer.observe(circle.nativeElement));
+      document.addEventListener('click', this.handleOutsideClick.bind(this));
     }
   }
 
@@ -215,7 +217,7 @@ export class IndexComponent {
       ],
     });
 
-    tour.drive(); // Inicia el tour
+    tour.drive(); 
   }
   toggleLanguage(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -224,7 +226,7 @@ export class IndexComponent {
     this.lang = input.checked ? 'en' : 'es';
     this.t = translations[this.lang];
     setTimeout(() => {
-      AOS.refresh(); // 👈 Esto asegura que AOS re-evalúe los elementos visibles
+      AOS.refresh(); 
     }, 100);
   }
 
@@ -246,6 +248,18 @@ export class IndexComponent {
       link.download = 'Mi_CV.pdf';
       link.click();
     }, 2000);
+  }
+  handleOutsideClick(event: MouseEvent) {
+    const navbar = this.navbarCollapse?.nativeElement;
+    const toggler = document.querySelector('.navbar-toggler');
+
+    if (!navbar || !navbar.classList.contains('show')) return;
+
+    const target = event.target as HTMLElement;
+
+    if (navbar.contains(target) || toggler?.contains(target)) return;
+
+    this.closeNavbar();
   }
   closeNavbar() {
     const el = this.navbarCollapse?.nativeElement;
