@@ -5,6 +5,7 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease-in-out;
   padding: 0.7rem 1.5rem;
+  width: 100%;
 }
 
 /* ======= BRAND STYLE ======= */
@@ -517,7 +518,6 @@ circle.progress {
   line-height: 1.6;
 }
 
-
 .project-thumb {
   max-height: 200px;
   object-fit: cover;
@@ -980,26 +980,337 @@ hr {
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
+    justify-content: center;
+    padding: 60px 5%;
     text-align: center;
-    padding-top: 100px;
-    gap: 20px;
+    height: auto;
   }
-  .hero-subtitle {
-    font-size: 1.2rem;
-    text-align: center;
+
+  .hero-image-wrapper {
+    margin-top: 40px;
+    width: 280px;
   }
 
   .hero-image {
-    max-width: 300px;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  glitch-text {
+    position: relative;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    animation: glitchHacker 2s steps(2, end), stabilize 0.3s ease 2s forwards;
+    opacity: 0;
+    display: inline-block; /* Añadido para contener los pseudo-elementos correctamente */
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    font-size: 1em;
+    font-weight: inherit;
+    display: inline-block;
+  }
+
+  .glitch-text::before {
+    color: #ff0055;
+    z-index: -1;
+    animation: glitchBefore 2s steps(2, end);
+  }
+
+  .glitch-text::after {
+    color: #00ffea;
+    z-index: -2;
+    animation: glitchAfter 2s steps(2, end);
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .name-title {
+    font-size: 1.8rem;
+  }
+
+  .about-me {
+    margin: 2rem auto 0 auto;
+    padding: 0 1rem;
+  }
+
+  .about-title {
+    font-size: 1.6rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .cv-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .button-group {
+    justify-content: center;
+  }
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .skill-card,
+  .tech-card {
+    width: calc(33.333% - 20px);
+  }
+
+  .skill-name,
+  .tech-name {
+    font-size: 1.1rem;
+  }
+
+  .skill-description {
+    font-size: 0.9rem;
+  }
+  .tech-columns {
+    flex-direction: column;
+    gap: 16px;
+  }
+   .projects-section {
+    padding: 60px 6%;
+  }
+
+  .project-card {
+    padding: 1.2rem;
+  }
+
+  .project-thumb {
+    max-height: 180px;
+  }
+
+  .project-card h5 {
+    font-size: 1.1rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+  }
+
+  .upcoming-icon {
+    font-size: 2rem;
+  }
+  .contact-section {
+    padding-bottom: 6rem;
+  }
+
+  .social-icon {
+    font-size: 1.8rem;
+    padding: 0.6rem;
+  }
+
+  .animated-bg {
+    width: 300%;
+    height: 300%;
+  }
+  .timeline {
+    padding-left: 0.5rem;
+    border-left: 2px solid #00fff7;
+  }
+
+  .timeline-item {
+    padding-left: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+    left: -10px;
+  }
+
+  .timeline-content {
+    padding: 0.85rem;
+    font-size: 0.95rem;
+  }
+  .copyxd {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+    --characters: 22ch;
+    --characters-steps: 22;
   }
 }
-@media (max-width: 992px) {
-  .navbar-collapse {
-    background: rgba(30, 30, 30, 0.95);
-    backdrop-filter: blur(12px);
-    border-radius: 12px;
+
+@media (max-width: 1200px) {
+  .hero-section {
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 8%;
+    text-align: center;
+    height: auto;
+  }
+
+  .hero-image-wrapper {
+    margin-top: 50px;
+    width: 360px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+  glitch-text {
+    position: relative;
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 700;
+    animation: glitchHacker 2s steps(2, end), stabilize 0.3s ease 2s forwards;
+    opacity: 0;
+    display: inline-block;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    font-size: 1em;
+    font-weight: inherit;
+    display: inline-block;
+  }
+
+  .glitch-text::before {
+    color: #ff0055;
+    z-index: -1;
+    animation: glitchBefore 2s steps(2, end);
+  }
+
+  .glitch-text::after {
+    color: #00ffea;
+    z-index: -2;
+    animation: glitchAfter 2s steps(2, end);
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .name-title {
+    font-size: 2.2rem;
+  }
+
+  .about-me {
+    margin: 2.5rem auto 0 auto;
+    padding: 0 2rem;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-description {
+    font-size: 1.1rem;
+  }
+
+  .cv-button {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+  .button-group {
+    justify-content: center;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .projects-section {
+    padding: 80px 8%;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .project-thumb {
+    max-height: 220px;
+  }
+
+  .project-card h5 {
+    font-size: 1.2rem;
+  }
+
+  .project-card p {
+    font-size: 1rem;
+  }
+
+  .upcoming-icon {
+    font-size: 2.2rem;
+  }
+
+  .contact-section {
+    padding-bottom: 6rem;
+  }
+
+  .social-icon {
+    font-size: 2rem;
+    padding: 0.8rem;
+  }
+
+  .animated-bg {
+    width: 250%;
+    height: 250%;
+  }
+
+  .timeline {
+    padding-left: 1rem;
+    border-left: 2px solid #00fff7;
+  }
+
+  .timeline-item {
+    padding-left: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    left: -12px;
+  }
+
+  .timeline-content {
     padding: 1rem;
-    margin-top: 10px;
-    animation: fadeDown 0.4s ease-in-out;
+    font-size: 1rem;
+  }
+
+  .copyxd {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    text-align: left;
+  }
+
+  .footer-text {
+    font-size: 0.95rem;
+    --characters: 30ch;
+    --characters-steps: 30;
   }
 }
