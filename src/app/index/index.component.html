@@ -1,0 +1,297 @@
+<nav class="navbar navbar-expand-lg fixed-top glass-navbar shadow-sm px-4 py-2">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold fs-4 text-white" href="#">{{ t.portfolio }}</a>
+    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="d-flex align-items-center me-3">
+        <img [src]="isEnglish ? ukFlag : spainFlag" alt="Flag" class="flag-icon" />
+        <input class="form-check-input ms-2" type="checkbox" id="langSwitch" (change)="toggleLanguage($event)" />
+        <label class="form-check-label ms-2" for="langSwitch">{{ isEnglish ? 'EN' : 'ES' }}</label>
+      </div>
+      <ul class="navbar-nav gap-2">
+        <li class="nav-item"><a class="nav-link text-white link-underline" href="#hero" fragment="about">{{ t.about
+            }}</a></li>
+        <li class="nav-item"><a class="nav-link text-white link-underline" href="#skills" fragment="skills">{{ t.skills
+            }}</a></li>
+        <li class="nav-item"><a class="nav-link text-white link-underline" href="#projects" fragment="projects">{{
+            t.projects }}</a></li>
+        <li class="nav-item"><a class="nav-link text-white link-underline" href="#estudios" fragment="study">{{ t.study
+            }}</a></li>
+        <li class="nav-item"><a class="nav-link text-white link-underline" href="#contacto" fragment="contact">{{
+            t.contact }}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- HERO SECTION -->
+<section id="hero" class="hero-section">
+  <div class="hero-text">
+    <h1 class="glitch-text" [attr.data-text]="t.fullstack">{{ t.fullstack }}</h1>
+    <h2 class="name-title">Sebastian Otero Alvarez</h2>
+    <p class="hero-subtitle">{{ t.subtitle }}</p>
+    <div class="about-me animated-about">
+      <h2 class="about-title">{{ t.aboutTitle }}</h2>
+      <p class="about-description">{{ t.aboutDesc }}</p>
+    </div>
+    <div class="button-group">
+      <button class="cv-button" [attr.data-tooltip]="t.cvTooltip" (click)="downloadCV()">
+        <span class="icon-wrapper">
+          <ng-container *ngIf="!isDownloading">📄</ng-container>
+          <ng-container *ngIf="isDownloading">
+            <span class="loading-icon"></span>
+          </ng-container>
+        </span>
+        {{ t.cvText }}
+      </button>
+
+      <button class="cv-button tour-button" [attr.data-tooltip]="t.tourTooltip" (click)="startTour()">
+        <span class="car-icon">🚗</span> {{ t.tourText }}
+      </button>
+    </div>
+  </div>
+  <div class="hero-image-wrapper" (mouseenter)="onHover(true)" (mouseleave)="onHover(false)">
+    <img [src]="currentImage" class="img-fluid hero-image" alt="yo desarrollador" />
+  </div>
+</section>
+<section id="skills" class="skills-section small-section" data-tour="skills">
+  <h2 class="section-title">{{ t.skills }}</h2>
+
+  <!-- HABILIDADES BLANDAS -->
+  <div class="skills-grid" data-aos="fade-right">
+    <div class="skill-card" *ngFor="let skill of skills">
+      <div class="circle" [attr.data-percentage]="skill.percentage" #circleRef>
+        <svg>
+          <circle cx="40" cy="40" r="35"></circle>
+          <circle class="progress" cx="40" cy="40" r="35"></circle>
+        </svg>
+        <div class="percent-text">{{ skill.percentage }}%</div>
+      </div>
+      {{ skill.icon }} <p>{{ skill.name[lang] }}</p>
+    </div>
+  </div>
+
+  <!-- TECNOLOGÍAS -->
+  <h2 class="section-title">{{ t.techTitle }}</h2>
+
+  <div class="tech-columns" id="Tecnologias" data-aos="zoom-out">
+    <!-- Frontend -->
+    <div class="tech-category">
+      <h3 class="subsection-title">Frontend</h3>
+      <div class="skills-grid tech-icons">
+        <div class="tech-card"><i class="fab fa-html5 fa-2x html"></i>
+          <p>HTML</p>
+        </div>
+        <div class="tech-card"><i class="fab fa-css3-alt fa-2x css"></i>
+          <p>CSS</p>
+        </div>
+        <div class="tech-card"><i class="fab fa-js fa-2x js"></i>
+          <p>JavaScript</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Backend -->
+    <div class="tech-category">
+      <h3 class="subsection-title">Backend</h3>
+      <div class="skills-grid tech-icons">
+        <div class="tech-card"><i class="fab fa-node-js fa-2x node"></i>
+          <p>Node.js</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech-category">
+      <h3 class="subsection-title">{{t.framework}}</h3>
+      <div class="skills-grid tech-icons">
+        <div class="tech-card"><i class="fab fa-angular fa-2x angular"></i>
+          <p>Angular</p>
+        </div>
+        <div class="tech-card">
+          <i class="fas fa-code" style="color: #ffffff;"></i>
+          <p>Express.js</p>
+        </div>
+        <div class="tech-card">
+          <i class="fab fa-bootstrap" style="color: #7952b3;"></i>
+          <p>Bootstrap</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOFTWARE -->
+  <div id="software-skills">
+    <h2 class="section-title">{{ t.softwareTitle }}</h2>
+    <div class="skills-grid tech-icons" data-aos="fade-up">
+      <div class="tech-card"><i class="fas fa-code fa-2x vscode"></i>
+        <p>VS Code</p>
+      </div>
+      <div class="tech-card"><i class="fab fa-git-alt fa-2x git"></i>
+        <p>Git</p>
+      </div>
+      <div class="tech-card"><i class="fab fa-github fa-2x github"></i>
+        <p>GitHub</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="projects-section" data-tour="projects">
+  <h2 class="text-white text-center mb-5">{{ t.featuredProjects }}</h2>
+  <div class="row g-4">
+    <!-- Proyecto 1 -->
+    <div class="col-md-6" id="proyecto1" data-aos="fade-right">
+      <div class="project-card p-3 rounded-4 shadow-lg h-100" data-aos="fade-up">
+        <img src="images/admin.PNG" class="img-fluid rounded-3 mb-3 project-thumb" alt="Admin Store" />
+        <h5 class="text-white">Admin Store</h5>
+        <p class="text-secondary">{{ t.adminDesc }}</p>
+        <span class="badge bg-danger me-1">Angular</span>
+        <span class="badge bg-primary me-1">Bootstrap</span>
+        <span class="badge bg-info text-dark me-1">TypeScript</span>
+        <span class="badge bg-warning text-dark">AWS S3</span>
+        <div class="mt-3 d-flex gap-2">
+          <a href="https://administrationstore.netlify.app/" target="_blank" class="btn btn-outline-light btn-sm"><i
+              class="fas fa-search"></i>
+            {{t.test}}</a>
+          <a href="https://github.com/JKDx97/Backend-GamerVault" target="_blank" class="btn btn-outline-light btn-sm"><i
+              class="fa-brands fa-github"></i> {{t.viewCode}}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 2 -->
+    <div class="col-md-6" id="proyecto2" data-aos="fade-left">
+      <div class="project-card p-3 rounded-4 shadow-lg h-100">
+        <img src="images/store.PNG" class="img-fluid rounded-3 mb-3 project-thumb" alt="Gamer Vault Store" />
+        <h5 class="text-white">Store Gamer Vault</h5>
+        <p class="text-secondary">{{ t.storeDesc }}</p>
+        <span class="badge bg-danger me-1">Angular</span>
+        <span class="badge bg-info text-dark me-1">TypeScript</span>
+        <span class="badge" style="background-color: #7952b3; color: white; margin-right: 0.25rem;">Bootstrap</span>
+        <span class="badge" style="background-color: #635bff;">Stripe</span>
+        <div class="mt-3 d-flex gap-2">
+          <a href="https://storegamervault.netlify.app/" target="_blank" class="btn btn-outline-light btn-sm"><i
+              class="fas fa-search"></i>
+            {{t.test}}</a>
+          <a href="https://github.com/JKDx97/Backend-GamerVault" target="_blank" class="btn btn-outline-light btn-sm"><i
+              class="fa-brands fa-github"></i> {{t.viewCode}}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 3 (Backend) -->
+    <div class="col-md-6" id="proyecto3" data-aos="fade-right">
+      <div class="project-card p-3 rounded-4 shadow-lg h-100">
+        <div
+          class="backend-placeholder bg-dark text-white d-flex justify-content-center align-items-center rounded-3 mb-3"
+          style="height: 200px;">
+          <span>API REST Backend</span>
+        </div>
+        <h5 class="text-white">API Ecommerce</h5>
+        <p class="text-secondary">
+          {{ t.apiDesc }}
+        </p>
+        <span class="badge bg-success text-white me-1">Node.js</span>
+        <span class="badge bg-dark me-1">Express</span>
+        <span class="badge bg-primary me-1">MySQL</span>
+        <span class="badge bg-info me-1">Sockets</span>
+        <span class="badge" style="background-color: #635bff; margin-right: 0.25rem;">Stripe</span>
+        <span class="badge bg-warning">AWS S3</span>
+        <div class="mt-3 d-flex gap-2">
+          <a href="https://github.com/JKDx97/Backend-GamerVault" target="_blank" class="btn btn-outline-light btn-sm"><i
+              class="fa-brands fa-github"></i> {{t.viewCode}}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Próximamente -->
+    <div class="col-md-6" id="proyecto4" data-aos="fade-left">
+      <div
+        class="project-card upcoming-card p-3 rounded-4 shadow-lg h-100 d-flex flex-column justify-content-center align-items-center text-center">
+        <div class="mb-3">
+          <span class="upcoming-icon">🚧</span>
+        </div>
+        <h5 class="text-white mb-2">{{ t.upcoming }}</h5>
+        <p class="text-secondary">{{ t.upcomingDesc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="estudios" class="estudios-section py-5" data-tour="studys">
+  <div class="container">
+    <h2 class="text-white text-center mb-4 animate__animated animate__fadeInDown">{{ t.studiesTitle }}</h2>
+
+    <div class="timeline">
+      <div class="timeline-item animate__animated animate__fadeInLeft" >
+        <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="timeline-content" data-aos="flip-down">
+          <h5 class="text-white">{{ t.idatTitle }}</h5>
+          <p class="text-secondary mb-1">{{ t.idatDesc }}</p>
+          <span class="badge bg-info text-dark">Finalizado</span>
+        </div>
+      </div>
+
+      <div class="timeline-item animate__animated animate__fadeInRight animate__delay-1s" >
+        <div class="timeline-icon"><i class="fas fa-university"></i></div>
+        <div class="timeline-content" data-aos="flip-down">
+          <h5 class="text-white">{{ t.utpTitle }}</h5>
+          <p class="text-secondary mb-1">{{ t.utpDesc }}</p>
+          <span class="badge bg-warning text-dark">En curso (Pregrado)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contacto" class="contact-section py-5 position-relative overflow-hidden" data-tour="contact">
+  <div class="container text-center position-relative z-2" data-aos="zoom-in">
+    <h2 class="text-white mb-4 animate__animated animate__fadeInDown">{{ t.contactTitle }}</h2>
+    <p class="text-secondary mb-4 animate__animated animate__fadeInUp">{{ t.contactDesc }}</p>
+
+    <div class="social-links d-flex justify-content-center flex-wrap gap-4">
+      <a href="mailto:tucorreo@gmail.com" class="social-icon" target="_blank" aria-label="Correo"><i
+          class="fa-brands fa-google"></i></a>
+      <a href="https://www.linkedin.com/in/tuusuario" class="social-icon" target="_blank" aria-label="LinkedIn"><i
+          class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/tuusuario" class="social-icon" target="_blank" aria-label="GitHub"><i
+          class="fab fa-github"></i></a>
+    </div>
+    <div class="copy-email-container animate__animated animate__fadeInUp">
+      <input type="text" class="email-input" [value]="email" disabled>
+      <button class="copy-btn" (click)="copyEmail()">
+        <span *ngIf="!copied" class="btn-text"><i class="fas fa-copy me-1"></i></span>
+        <span *ngIf="copied" class="check-icon">✔</span>
+      </button>
+    </div>
+  </div>
+</section>
+<footer class="custom-footer py-5 position-relative">
+  <div class="container">
+    <!-- Información adicional -->
+    <div class="text-center mb-4">
+      <div class="text-center mb-4 d-flex justify-content-center align-items-center gap-2">
+        <span class="badge bg-success px-3 py-2 fs-6 shadow-sm" data-aos="fade-right">
+          {{ t.availableNow }}
+        </span>
+        <!-- Animación de programador -->
+        <div #lottieContainer style="width: 50px; height: 50px" data-aos="fade-left"></div>
+      </div>
+      <p class="text-light small mt-2" data-aos="flip-left">
+        {{ t.location }}: Lima, Perú |
+        {{ t.timezone }}: GMT-5 |
+        {{ currentDate | date: dateFormat }} - {{ currentTime }}
+      </p>
+    </div>
+    <hr class="border-light my-4" />
+    <!-- Derechos -->
+    <div class="copyxd">
+      <p class="text-center footer-text typing-animation mb-0">
+        © Sebastian Otero Alvarez.
+      </p>
+    </div>
+  </div>
+</footer>
