@@ -1,3 +1,4 @@
+
 .glass-navbar {
   background: rgba(30, 30, 30, 0.7);
   backdrop-filter: blur(15px);
@@ -978,6 +979,7 @@ hr {
 
 /* ======= RESPONSIVE ======= */
 @media (max-width: 768px) {
+    
   .hero-section {
     flex-direction: column;
     justify-content: center;
