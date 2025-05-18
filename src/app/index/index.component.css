@@ -1,4 +1,3 @@
-
 .glass-navbar {
   background: rgba(30, 30, 30, 0.7);
   backdrop-filter: blur(15px);
@@ -979,7 +978,6 @@ hr {
 
 /* ======= RESPONSIVE ======= */
 @media (max-width: 768px) {
-    
   .hero-section {
     flex-direction: column;
     justify-content: center;
@@ -1082,29 +1080,6 @@ hr {
   .tech-columns {
     flex-direction: column;
     gap: 16px;
-  }
-   .projects-section {
-    padding: 60px 6%;
-  }
-
-  .project-card {
-    padding: 1.2rem;
-  }
-
-  .project-thumb {
-    max-height: 180px;
-  }
-
-  .project-card h5 {
-    font-size: 1.1rem;
-  }
-
-  .project-card p {
-    font-size: 0.9rem;
-  }
-
-  .upcoming-icon {
-    font-size: 2rem;
   }
   .contact-section {
     padding-bottom: 6rem;
