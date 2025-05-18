@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg fixed-top glass-navbar shadow-sm px-4 py-2">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold fs-4 text-white" href="#">{{ t.portfolio }}</a>
-    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="closeNavbar()">
+    <button #navbarToggler class="navbar-toggler bg-light" type="button" (click)="toggleNavbar()"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -11,19 +11,25 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav" #navbarCollapse>
       <div class="d-flex align-items-center me-3">
         <img [src]="isEnglish ? ukFlag : spainFlag" alt="Flag" class="flag-icon" />
-        <input class="form-check-input ms-2" type="checkbox" id="langSwitch" (click)="closeNavbar()" (change)="toggleLanguage($event)" />
+        <input class="form-check-input ms-2" type="checkbox" id="langSwitch" (click)="closeNavbar()"
+          (change)="toggleLanguage($event)" />
         <label class="form-check-label ms-2" for="langSwitch">{{ isEnglish ? 'EN' : 'ES' }}</label>
       </div>
       <ul class="navbar-nav gap-2">
-        <li class="nav-item"><a class="nav-link text-white link-underline" (click)="closeNavbar()" href="#hero" fragment="about">{{ t.about
+        <li class="nav-item"><a class="nav-link text-white link-underline" (click)="closeNavbar()" href="#hero"
+            fragment="about">{{ t.about
             }}</a></li>
-        <li class="nav-item"><a class="nav-link text-white link-underline" (click)="closeNavbar()" href="#skills" fragment="skills">{{ t.skills
+        <li class="nav-item"><a class="nav-link text-white link-underline" (click)="closeNavbar()" href="#skills"
+            fragment="skills">{{ t.skills
             }}</a></li>
-        <li class="nav-item"><a class="nav-link text-white link-underline" (click)="closeNavbar()" href="#projects" fragment="projects">{{
+        <li class="nav-item"><a class="nav-link text-white link-underline" (click)="closeNavbar()" href="#projects"
+            fragment="projects">{{
             t.projects }}</a></li>
-        <li class="nav-item"><a class="nav-link text-white link-underline" (click)="closeNavbar()" href="#estudios" fragment="study">{{ t.study
+        <li class="nav-item"><a class="nav-link text-white link-underline" (click)="closeNavbar()" href="#estudios"
+            fragment="study">{{ t.study
             }}</a></li>
-        <li class="nav-item"><a class="nav-link text-white link-underline" (click)="closeNavbar()" href="#contacto" fragment="contact">{{
+        <li class="nav-item"><a class="nav-link text-white link-underline" (click)="closeNavbar()" href="#contacto"
+            fragment="contact">{{
             t.contact }}</a></li>
       </ul>
     </div>
@@ -227,7 +233,7 @@
     <h2 class="text-white text-center mb-4 animate__animated animate__fadeInDown">{{ t.studiesTitle }}</h2>
 
     <div class="timeline">
-      <div class="timeline-item animate__animated animate__fadeInLeft" >
+      <div class="timeline-item animate__animated animate__fadeInLeft">
         <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
         <div class="timeline-content" data-aos="flip-down">
           <h5 class="text-white">{{ t.idatTitle }}</h5>
@@ -236,7 +242,7 @@
         </div>
       </div>
 
-      <div class="timeline-item animate__animated animate__fadeInRight animate__delay-1s" >
+      <div class="timeline-item animate__animated animate__fadeInRight animate__delay-1s">
         <div class="timeline-icon"><i class="fas fa-university"></i></div>
         <div class="timeline-content" data-aos="flip-down">
           <h5 class="text-white">{{ t.utpTitle }}</h5>

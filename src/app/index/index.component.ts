@@ -42,6 +42,7 @@ export class IndexComponent {
   dateFormat: string = 'fullDate';
   private timer: any;
   isDownloading = false;
+  isNavbarOpen = false;
 
   skills = [
     {
@@ -89,6 +90,7 @@ export class IndexComponent {
   @ViewChildren('circleRef') circles!: QueryList<ElementRef>;
   @ViewChild('lottieContainer', { static: false }) lottieContainer!: ElementRef;
   @ViewChild('navbarCollapse', { static: false }) navbarCollapse!: ElementRef;
+  @ViewChild('navbarToggler', { static: false }) navbarToggler!: ElementRef;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -117,17 +119,17 @@ export class IndexComponent {
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       AOS.init({
-        once: false, 
+        once: false,
       });
       setTimeout(() => {
-        AOS.refreshHard(); 
+        AOS.refreshHard();
       }, 500);
       lottie.loadAnimation({
         container: this.lottieContainer.nativeElement,
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        path: '/images/animation.json', 
+        path: '/images/animation.json',
       });
       const observer = new IntersectionObserver(
         (entries) => {
@@ -217,7 +219,7 @@ export class IndexComponent {
       ],
     });
 
-    tour.drive(); 
+    tour.drive();
   }
   toggleLanguage(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -226,7 +228,7 @@ export class IndexComponent {
     this.lang = input.checked ? 'en' : 'es';
     this.t = translations[this.lang];
     setTimeout(() => {
-      AOS.refresh(); 
+      AOS.refresh();
     }, 100);
   }
 
@@ -260,6 +262,26 @@ export class IndexComponent {
     if (navbar.contains(target) || toggler?.contains(target)) return;
 
     this.closeNavbar();
+  }
+  toggleNavbar() {
+    const el = this.navbarCollapse?.nativeElement;
+    const toggler = this.navbarToggler?.nativeElement;
+
+    if (!el || !toggler) return;
+
+    const collapse =
+      bootstrap.Collapse.getInstance(el) ||
+      new bootstrap.Collapse(el, { toggle: false });
+
+    if (el.classList.contains('show')) {
+      collapse.hide();
+      toggler.setAttribute('aria-expanded', 'false');
+      this.isNavbarOpen = false;
+    } else {
+      collapse.show();
+      toggler.setAttribute('aria-expanded', 'true');
+      this.isNavbarOpen = true;
+    }
   }
   closeNavbar() {
     const el = this.navbarCollapse?.nativeElement;
