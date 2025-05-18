@@ -1,8 +1,5 @@
 [build]
   command = "ng build --configuration=production"
-  publish = "dist/portafolio"
+  publish = "dist/portafolio/browser"
 
-[[plugins]]
-  package = "@netlify/plugin-angular"
-  [plugins.inputs]
-  skipPrerender = true
+
