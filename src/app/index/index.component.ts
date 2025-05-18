@@ -92,7 +92,6 @@ export class IndexComponent {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      AOS.init();
       this.updateTime();
       this.timer = setInterval(() => {
         this.updateTime();
@@ -114,6 +113,12 @@ export class IndexComponent {
   }
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
+      AOS.init({
+        once: false, // <- CAMBIO AQUÍ
+      });
+      setTimeout(() => {
+        AOS.refreshHard(); // fuerza el reescaneo del DOM
+      }, 500);
       lottie.loadAnimation({
         container: this.lottieContainer.nativeElement,
         renderer: 'svg',
@@ -216,6 +221,9 @@ export class IndexComponent {
 
     this.lang = input.checked ? 'en' : 'es';
     this.t = translations[this.lang];
+    setTimeout(() => {
+      AOS.refresh(); // 👈 Esto asegura que AOS re-evalúe los elementos visibles
+    }, 100);
   }
 
   copyEmail() {
