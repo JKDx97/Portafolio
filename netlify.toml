@@ -4,8 +4,3 @@
 
 [[plugins]]
   package = "@netlify/angular-runtime"
-
-[[plugins]]
-  package = "@netlify/plugin-angular"
-  [plugins.inputs]
-    skipPrerender = true
