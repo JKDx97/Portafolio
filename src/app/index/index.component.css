@@ -59,7 +59,7 @@
   transition: transform 0.3s ease;
 }
 
-.navbar-toggler:hover {
+.navbar-toggler.rotated {
   transform: rotate(90deg);
 }
 

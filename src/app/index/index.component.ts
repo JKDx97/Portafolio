@@ -89,7 +89,8 @@ export class IndexComponent {
   @ViewChildren('circleRef') circles!: QueryList<ElementRef>;
   @ViewChild('lottieContainer', { static: false }) lottieContainer!: ElementRef;
   @ViewChild('navbarCollapse', { static: false }) navbarCollapse!: ElementRef;
-
+  menuOpen: boolean = false;
+  collapseInstance: any;
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit(): void {
@@ -117,17 +118,17 @@ export class IndexComponent {
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       AOS.init({
-        once: false, 
+        once: false,
       });
       setTimeout(() => {
-        AOS.refreshHard(); 
+        AOS.refreshHard();
       }, 500);
       lottie.loadAnimation({
         container: this.lottieContainer.nativeElement,
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        path: '/images/animation.json', 
+        path: '/images/animation.json',
       });
       const observer = new IntersectionObserver(
         (entries) => {
@@ -149,6 +150,26 @@ export class IndexComponent {
 
       this.circles.forEach((circle) => observer.observe(circle.nativeElement));
       document.addEventListener('click', this.handleOutsideClick.bind(this));
+      this.collapseInstance = new bootstrap.Collapse(
+        this.navbarCollapse.nativeElement,
+        {
+          toggle: false,
+        }
+      );
+
+      this.navbarCollapse.nativeElement.addEventListener(
+        'hidden.bs.collapse',
+        () => {
+          this.menuOpen = false;
+        }
+      );
+
+      this.navbarCollapse.nativeElement.addEventListener(
+        'shown.bs.collapse',
+        () => {
+          this.menuOpen = true;
+        }
+      );
     }
   }
 
@@ -217,7 +238,7 @@ export class IndexComponent {
       ],
     });
 
-    tour.drive(); 
+    tour.drive();
   }
   toggleLanguage(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -226,7 +247,7 @@ export class IndexComponent {
     this.lang = input.checked ? 'en' : 'es';
     this.t = translations[this.lang];
     setTimeout(() => {
-      AOS.refresh(); 
+      AOS.refresh();
     }, 100);
   }
 
@@ -267,6 +288,15 @@ export class IndexComponent {
       const collapse =
         bootstrap.Collapse.getInstance(el) || new bootstrap.Collapse(el);
       collapse.hide();
+    }
+  }
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen; // 👈 CAMBIO CLAVE: actualizar inmediatamente
+
+    if (this.menuOpen) {
+      this.collapseInstance.show();
+    } else {
+      this.collapseInstance.hide();
     }
   }
 }
