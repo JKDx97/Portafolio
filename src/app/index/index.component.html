@@ -95,7 +95,7 @@
           <p>CSS</p>
         </div>
         <div class="tech-card"><i class="fab fa-js fa-2x js"></i>
-          <p>JavaScript</p>
+          <p>Javscript</p>
         </div>
       </div>
     </div>
@@ -127,19 +127,46 @@
       </div>
     </div>
   </div>
+  <!-- Base de Datos -->
+  <div class="tech-columns" data-aos="fade-up">
+    <!-- SOFTWARE -->
+    <div class="tech-category">
+      <h2 class="section-title">{{ t.softwareTitle }}</h2>
+      <div class="skills-grid tech-icons">
+        <div class="tech-card"><i class="fab fa-git-alt fa-2x git"></i>
+          <p>Git</p>
+        </div>
 
-  <!-- SOFTWARE -->
-  <div id="software-skills">
-    <h2 class="section-title">{{ t.softwareTitle }}</h2>
-    <div class="skills-grid tech-icons" data-aos="fade-up">
-      <div class="tech-card"><i class="fas fa-code fa-2x vscode"></i>
-        <p>VS Code</p>
+        <div class="tech-card"><i class="fab fa-github fa-2x github"></i>
+          <p>GitHub</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="https://cdn.prod.website-files.com/6449405754e757db07f25327/665640ba37220e332ed27ae0_aws.webp"
+            alt="AWS S3" width="32" height="32">
+          <p>AWS S3</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase"
+            width="32" height="32">
+          <p>Firebase</p>
+        </div>
       </div>
-      <div class="tech-card"><i class="fab fa-git-alt fa-2x git"></i>
-        <p>Git</p>
-      </div>
-      <div class="tech-card"><i class="fab fa-github fa-2x github"></i>
-        <p>GitHub</p>
+    </div>
+
+    <!-- BASE DE DATOS -->
+    <div class="tech-category">
+      <h2 class="section-title">Base de Datos</h2>
+      <div class="skills-grid tech-icons">
+        <div class="tech-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
+          <p>MongoDB</p>
+        </div>
+        <div class="tech-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+          <p>MySQL</p>
+        </div>
       </div>
     </div>
   </div>
@@ -284,18 +311,12 @@
         <!-- Animación de programador -->
         <div #lottieContainer style="width: 50px; height: 50px" data-aos="fade-left"></div>
       </div>
-      <p class="text-light small mt-2" data-aos="flip-left">
+      <p class="text-light small mt-2">
         {{ t.location }}: Lima, Perú |
         {{ t.timezone }}: GMT-5 |
         {{ currentDate | date: dateFormat }} - {{ currentTime }}
       </p>
     </div>
     <hr class="border-light my-4" />
-    <!-- Derechos -->
-    <div class="copyxd">
-      <p class="text-center footer-text typing-animation mb-0">
-        © Sebastian Otero Alvarez.
-      </p>
-    </div>
   </div>
 </footer>
