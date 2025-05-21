@@ -263,7 +263,7 @@
         <div class="timeline-content" data-aos="flip-down">
           <h5 class="text-white">{{ t.idatTitle }}</h5>
           <p class="text-secondary mb-1">{{ t.idatDesc }}</p>
-          <span class="badge bg-info text-dark">Finalizado</span>
+          <span class="badge bg-info text-dark">{{t.finished}}</span>
         </div>
       </div>
 
@@ -272,7 +272,7 @@
         <div class="timeline-content" data-aos="flip-down">
           <h5 class="text-white">{{ t.utpTitle }}</h5>
           <p class="text-secondary mb-1">{{ t.utpDesc }}</p>
-          <span class="badge bg-warning text-dark">En curso (Pregrado)</span>
+          <span class="badge bg-warning text-dark">{{t.progress}}</span>
         </div>
       </div>
     </div>
