@@ -35,13 +35,13 @@ export const translations = {
     utpTitle: 'UTP - Universidad Tecnológica del Perú',
     utpDesc: 'Carrera Profesional: Ingeniería de Sistemas e Información',
     contactTitle: 'Contáctame',
-    contactDesc:
-      'Estoy disponible para colaboraciones o proyectos.',
+    contactDesc: 'Estoy disponible para colaboraciones o proyectos.',
     availableNow: 'Disponible para trabajar',
     location: 'Ubicación',
     timezone: 'Zona horaria',
-    finished : 'Finalizado',
-    progress : 'En curso'
+    finished: 'Finalizado',
+    progress: 'En curso',
+    database: 'Bases de datos',
   },
   en: {
     portfolio: 'MyPortfolio',
@@ -82,7 +82,8 @@ export const translations = {
     availableNow: 'Available to work',
     location: 'Location',
     timezone: 'Timezone',
-    finished : 'Finished',
-    progress : 'In progress'
+    finished: 'Finished',
+    progress: 'In progress',
+    database: 'Database',
   },
 };

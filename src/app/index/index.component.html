@@ -60,7 +60,15 @@
     </div>
   </div>
   <div class="hero-image-wrapper" (mouseenter)="onHover(true)" (mouseleave)="onHover(false)">
+    <div class="floating-tech-icons">
+      <i class="fab fa-node-js"></i>
+      <i class="fab fa-angular"></i>
+      <i class="fab fa-js"></i>
+      <i class="fas fa-database"></i>
+    </div>
     <img [src]="currentImage" class="img-fluid hero-image" alt="yo desarrollador" />
+        <div class="blur-circle"></div>
+
   </div>
 </section>
 <section id="skills" class="skills-section small-section" data-tour="skills">
@@ -157,7 +165,7 @@
 
     <!-- BASE DE DATOS -->
     <div class="tech-category">
-      <h2 class="section-title">Base de Datos</h2>
+      <h2 class="section-title">{{t.database}}</h2>
       <div class="skills-grid tech-icons">
         <div class="tech-card">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
